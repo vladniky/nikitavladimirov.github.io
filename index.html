@@ -37,16 +37,10 @@ const SITE = {
 };
 
 const PROJECTS = [
-  { title: "ФХМ — Плей-офф 2024/25", year: 2025, cat: "Спорт",   role: "Монтаж", video: "https://vimeo.com/1059450643", dur: 61,
-    poster: "https://i.vimeocdn.com/video/1985806406-5da8d96b90c761c651c297605feb217b98438ef566bf5cb4451d259ecc585074-d_1280?region=us" },
   { title: "BMW X6 FERZ",             year: 2022, cat: "Авто",    role: "Съёмка, монтаж", video: "https://vimeo.com/1060553245", dur: 60,
     poster: "https://i.vimeocdn.com/video/1987117080-6dbf2b7bbdc12a5930115a612ea39410632d63afdf79c1407d021a9af8a657c9-d_1280?region=us" },
-  { title: "Olimp Trade",             year: 2023, cat: "Реклама", role: "Монтаж", video: "https://vimeo.com/1064340940", dur: 212,
-    poster: "https://i.vimeocdn.com/video/1991636483-46f47ec568a095fbb82cab49bb6d61c4d9b1551aa164c39138efbe60574dcfb1-d_1280?region=us" },
   { title: "Audi SQ8",                year: 2022, cat: "Авто",    role: "Съёмка, монтаж", video: "https://vimeo.com/1061721613", dur: 61,
     poster: "https://i.vimeocdn.com/video/1988508763-00a08d2dd7c94b6acaee3c2401cd1e4a78f4fa77e03e044f3d9cf3130661ca5e-d_1280?region=us" },
-  { title: "AR-анализ матчей",        year: 2025, cat: "Спорт",   role: "Монтаж, графика", video: "https://vimeo.com/1061513312", dur: 60,
-    poster: "https://i.vimeocdn.com/video/1988261563-348bdb8f9fa2cc1636281a46c481974b757fc27e8d8da8f7b4c901afd623d056-d_1280?region=us" },
   { title: "Золото Ладоги",           year: 2024, cat: "Спорт",   role: "Съёмка, монтаж", video: "https://vimeo.com/1064335364", dur: 47,
     poster: "https://i.vimeocdn.com/video/1991628658-1c51797073faa6b3d76cbef69c580183e11b96419110698b50152b9979e82684-d_1280?region=us" },
   { title: "Дальняя дистанция",       year: 2025, cat: "Спорт",   role: "Съёмка, монтаж", video: "https://vimeo.com/1057960285", dur: 30,
@@ -133,6 +127,8 @@ section{padding:clamp(72px,11vw,150px) var(--pad) 0}
 .card.in{opacity:1;transform:none}
 .card.hide{display:none}
 .card:first-child{grid-column:1/-1}
+.card:last-child:nth-child(even){grid-column:1/-1}
+.card:last-child:nth-child(even) .thumb{aspect-ratio:21/9}
 .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--bg2)}
 .card:first-child .thumb{aspect-ratio:21/9}
 .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9) brightness(.9)}
