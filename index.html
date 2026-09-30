@@ -27,16 +27,20 @@ const SITE = {
   name: "Nikita Vladimirov",
   nameRu: "Никита Владимиров",
   roles: ["Режиссёр монтажа", "Оператор"],
-  tagline: "Спорт, авто и реклама. Монтаж, съёмка, графика — от идеи до финального экспорта.",
+  tagline: "Документальное, спорт, авто и реклама. Съёмка, монтаж, графика — от идеи до финального экспорта.",
   email: "mail@nikitavladimirov.ru",
   phone: "+7 926 535-23-96",
   telegram: "n_vladimirov",
   instagram: "https://www.instagram.com/n_vladimirov/",
   vk: "https://vk.com/n_vladimirov_video",
-  heroPoster: "https://i.vimeocdn.com/video/1987117080-6dbf2b7bbdc12a5930115a612ea39410632d63afdf79c1407d021a9af8a657c9-d_1920?region=us"
+  heroPoster: "hero.jpg"
 };
 
 const PROJECTS = [
+  { title: "На кончиках пальцев", sub: "Есть такая профессия · Прима Театра Станиславского и Немировича-Данченко", year: 2026, cat: "Документальное", role: "Съёмка, монтаж", video: "https://vimeo.com/1231624050", dur: 141,
+    poster: "balerina.jpg" },
+  { title: "Пациент кусается", sub: "Есть такая профессия · Ветеринар Московского зоопарка", year: 2026, cat: "Документальное", role: "Съёмка, монтаж", video: "https://vimeo.com/1231624051", dur: 199,
+    poster: "https://i.vimeocdn.com/video/2206838944-52b1bfe5b71e53ab14cc92fc68b16934b5517f498aa9bcc82562193278a3c922-d_1280?region=us" },
   { title: "BMW X6 FERZ",             year: 2022, cat: "Авто",    role: "Съёмка, монтаж", video: "https://vimeo.com/1060553245", dur: 60,
     poster: "https://i.vimeocdn.com/video/1987117080-6dbf2b7bbdc12a5930115a612ea39410632d63afdf79c1407d021a9af8a657c9-d_1280?region=us" },
   { title: "Audi SQ8",                year: 2022, cat: "Авто",    role: "Съёмка, монтаж", video: "https://vimeo.com/1061721613", dur: 61,
@@ -47,8 +51,6 @@ const PROJECTS = [
     poster: "https://i.vimeocdn.com/video/1984019404-b6ce4962c723a45f55f8acbc9a21a7b200b8acff8708fd61c96e75694147b217-d_1280?region=us" },
   { title: "МегаФон — бэкстейдж",     year: 2023, cat: "Реклама", role: "Съёмка, монтаж", video: "https://vimeo.com/1065535086", dur: 126,
     poster: "https://i.vimeocdn.com/video/1993063516-ac657c6a25b2d6bbd7e682997ac103617c7a546055d641ecb496fd3ca1917523-d_1280?region=us" },
-  { title: "위기 · Кризис",            year: 2020, cat: "Арт",     role: "Режиссура, монтаж", video: "https://vimeo.com/406000130", dur: 154,
-    poster: "https://i.vimeocdn.com/video/1991642978-3f68957abce6138822d10ba0236594d583985fd95f561eb009f7974f434eb55a-d_1280?region=us" }
 ];
 
 const ABOUT = [
@@ -143,6 +145,7 @@ section{padding:clamp(72px,11vw,150px) var(--pad) 0}
 .info{display:flex;justify-content:space-between;gap:16px;padding-top:14px;align-items:baseline}
 .info h3{font:500 clamp(20px,2vw,28px)/1.15 var(--display);text-transform:uppercase;letter-spacing:.01em}
 .info .idx{font:400 12px var(--mono);color:var(--dim);margin-right:10px}
+.info .sub{display:block;font:400 11px/1.5 var(--mono);color:var(--dim);letter-spacing:.05em;text-transform:uppercase;margin-top:6px}
 .info .meta{font:400 12px/1.6 var(--mono);color:var(--dim);text-align:right;white-space:nowrap;letter-spacing:.04em}
 
 /* about */
@@ -286,7 +289,7 @@ $("#grid").innerHTML = PROJECTS.map((p,i) => `
       <div class="play"></div>
     </div>
     <div class="info">
-      <h3><span class="idx">${pad(i+1)}</span>${esc(p.title)}</h3>
+      <div><h3><span class="idx">${pad(i+1)}</span>${esc(p.title)}</h3>${p.sub?`<small class="sub">${esc(p.sub)}</small>`:""}</div>
       <div class="meta">${p.year} · ${esc(p.role)}<br>TC ${tcOf(p.dur||0)}</div>
     </div>
   </article>`).join("");
